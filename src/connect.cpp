@@ -96,13 +96,13 @@ int main(int argc, char* argv[])
   
   otBioLabClient.start();
   
-  for (unsigned i = 0; i < 10000; ++i) 
+  while(1)
   {
     vector<short> newData;
     otBioLabClient.readChannels(newData);
     
 #ifdef LOG    
-    cout << i << ": " << newData << endl;
+    cout << newData << endl;
 #endif
 #ifdef STORE_DATA
     sampleFile << newData << endl;
