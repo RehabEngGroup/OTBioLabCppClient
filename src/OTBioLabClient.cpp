@@ -197,7 +197,7 @@ void OTBioLabClient::printChannelConfiguration(std::ostream& out)
 {
     out << "Ch.\t Gain \t LP \t HP " << endl;
     out << "-------------------------------------------------------\n";
-    for (int i = 0; i < channelConfig_.at(0).size(); ++i) {
+    for (unsigned int i = 0; i < channelConfig_.at(0).size(); ++i) {
       out << i << ": \t" << channelConfig_.at(0).at(i) << "\t "
                         << channelConfig_.at(1).at(i) << "\t" 
                         << channelConfig_.at(2).at(i) << endl;

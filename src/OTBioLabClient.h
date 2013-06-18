@@ -43,20 +43,22 @@ private:
   void readData(std::vector< short >& data, unsigned numData);
   void fromBytesToShort(char* from, std::vector<short>& to, unsigned fromLength);
   
-  boost::asio::io_service io_service_;
-  boost::asio::ip::tcp::socket socket_;
   
   std::string host_;
   std::string port_;
-  ushort sampleRate_;
-  ushort noEMGchannels_;
-  ushort noAUXchannels_;
-  ushort nGain_;
+  unsigned short sampleRate_;
+  unsigned short noEMGchannels_;
+  unsigned short noAUXchannels_;
+  unsigned short nGain_;
   std::vector< std::vector< short> > channelConfig_; 
+  
+  
+  boost::asio::io_service io_service_;
+  boost::asio::ip::tcp::socket socket_;
   
   std::string mode_;
   
-  int blockSizeInBytes_;
+  unsigned int blockSizeInBytes_;
 };
 
 #endif
