@@ -81,11 +81,10 @@ int main(int argc, char* argv[])
   OTBioLabClient otBioLabClient(argv[1]);
   
   
-  
 #ifdef LOG
   cout << "OTBioLab configuration: \n";
   cout << otBioLabClient << endl;
-  otBioLabClient.printChannelConfiguration(cout);
+  //otBioLabClient.printChannelConfiguration(cout);
 #endif
   
 
@@ -95,14 +94,14 @@ int main(int argc, char* argv[])
 #endif
   
   otBioLabClient.start();
-  
+  int i = 0;
   while(1)
   {
     vector<short> newData;
     otBioLabClient.readChannels(newData);
     
 #ifdef LOG    
-    cout << newData << endl;
+    cout << i++ << ": " << newData << endl;
 #endif
 #ifdef STORE_DATA
     sampleFile << newData << endl;

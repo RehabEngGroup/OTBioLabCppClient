@@ -72,7 +72,7 @@ OTBioLabClient::OTBioLabClient(const string& host)
   try
   {
     tcp::resolver resolver(io_service_);
-    tcp::resolver::query query(tcp::v4(), host_, port_);
+    tcp::resolver::query query(tcp::v4(), host_, port_, boost::asio::ip::resolver_query_base::all_matching);
     tcp::resolver::iterator iterator = resolver.resolve(query);
  
     boost::asio::connect(socket_, iterator);
@@ -112,6 +112,7 @@ void OTBioLabClient::getConfiguration()
   noEMGchannels_ = configurationParameters.at(1);
   noAUXchannels_ = configurationParameters.at(2);
   nGain_       = configurationParameters.at(3);
+   
 }
 
 
