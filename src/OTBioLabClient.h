@@ -35,6 +35,7 @@ public:
   
   void printChannelConfiguration(std::ostream& out) ;
   friend std::ostream& operator<<(std::ostream& out, const OTBioLabClient& client);
+  short getEMGgain() { return channelConfig_.at(0).at(0); }; 
 private:
   void getConfiguration();
   void getAcquisitionMode();
